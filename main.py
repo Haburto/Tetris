@@ -1,5 +1,8 @@
 import pygame
 
+# CTRL + ALT + L    // format everything in pycharm
+
+
 # Tetris - game logic
 # I want to have a level system, each level the gamespeed increases a certain amount which affects the total score
 # How many blocks can fit in the x axis? probably 6 to 8 ?
@@ -28,3 +31,31 @@ import pygame
 # TODO: implement gameplay loop - see game logic comment
 # TODO: implement hotkey support
 # TODO: implement logic
+quit_game = False
+
+
+def event_handler():
+    global quit_game
+
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            quit_game = True
+
+
+def main():
+    pygame.init()
+    window_size = (800, 600)
+    window = pygame.display.set_mode(window_size)
+    window_fill_colour = (0, 0, 0)
+
+    while not quit_game:
+        window.fill(window_fill_colour)
+        pygame.display.update()
+
+        event_handler()
+
+    pygame.quit()
+    exit()
+
+
+main()
