@@ -31,6 +31,10 @@ import pygame
 # TODO: implement gameplay loop - see game logic comment
 # TODO: implement hotkey support
 # TODO: implement logic
+window_size = (800, 600)
+window_fill_colour = (0, 0, 0)
+window = pygame.display.set_mode(window_size)
+
 quit_game = False
 
 
@@ -43,19 +47,15 @@ def event_handler():
 
 
 def main():
-    pygame.init()
-    window_size = (800, 600)
-    window = pygame.display.set_mode(window_size)
-    window_fill_colour = (0, 0, 0)
-
     while not quit_game:
+        event_handler()
+
         window.fill(window_fill_colour)
         pygame.display.update()
-
-        event_handler()
 
     pygame.quit()
     exit()
 
 
+pygame.init()
 main()
